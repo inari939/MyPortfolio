@@ -1,0 +1,1193 @@
+/* fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@400..900&display=swap');
+/* variables */
+
+:root{
+    /* barra de scroll */
+    --turquesa:#00e1ff;
+    --fondo-scroll: #13547a;
+
+    /* navbar */
+    --nav-logo:#1542be;
+    --fondo-nav: rgba(6, 9, 22, 0.158);
+    --nav-link:#afb3b8;
+    --fondo-nav-hover:rgb(0, 0, 0); 
+    --nav-link-hover:#e704fc;
+    /* --nav-link-hover:#ff1e8f; */
+    --nav-toggler:white;
+
+    /* body con imagen y filtro oscuro encima (usar con background image) */
+    --body-img:linear-gradient(to right, #03061b7a 1%, #05167762 5%, #09085e67 80%, #03061b70 100%), url(./img/fondo-9.png);;
+
+    /* fondo de colores de mi nombre (usar en background image) */
+    --nombre-fondo: linear-gradient(to right, #be18ff 0%, #ff1e8f 10%, #fa497e 20%, #db53c5 30%, #c27fd7 40%, #f629f1 50%, #ff1e8f 60%, #FF3CAC 70%, #c52b45 80%, #ff3c3c 90%, #ff1e8f 100%);
+
+    /* boton contacto parpadeante */
+    --boton-parpadeante:#6de8f8;
+
+    /* textos */
+    --texto:#e7e3e3;
+
+    /*fondo cuadros flotantes */
+    --cuadro-fondo:#080981;
+
+    /* boton descargar cv */
+    --descargar-cv:white; 
+    --color-descargar-cv:#e704fc;
+
+    /* glitch de habilidades */
+    --rojo:rgb(255, 0, 0, 0.75);
+    --verde:rgb(0, 255, 0, 0.75);
+    --azul:rgb(0, 0, 255, 0.75);
+
+    /* nube con lluvia */
+    --nube:#0f0;
+
+    /* titulo contacto */
+    --lima:lime;
+    --fondo-contacto:#494848;
+    
+    /* seccion habilidades */
+    --carrusel: #e704fc;
+
+    /* seccion footer */
+    --derechos-autor: #aeaeae;
+
+
+
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: var(--body-img);
+    color: var(--texto);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* estilos de la barra de scroll */
+body::-webkit-scrollbar {
+    width: 17px;
+    background: #13547a;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #00e1ff;
+    box-shadow: 0 0 15px 15px #00e1ff;
+}
+
+#particles-js {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+/* estilos de fondo del titulo pricipal grande*/
+.mi-nombre {
+    font-family: "Monoton", serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    /* font-size: 8rem; */
+    font-style: normal;
+    background-image: var(--nombre-fondo);
+    -webkit-background-clip: text;
+    background-clip: '';
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+    animation: gradient 8s ease-in-out infinite;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* fin estilo titulo principal con mi nombre */
+
+/* Estilos para la navbar */
+.estilos-nav {
+    background: var(--fondo-nav);
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    border-left: 0;
+    border-right: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0px 3px 5px #000000;
+    width: 100vw;
+}
+
+
+.estilos-nav .navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--nav-logo);
+}
+
+.estilos-nav .navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-grow: 1;
+}
+.estilos-nav .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--nav-link);
+    transition: color 0.3s ease-in-out;
+    animation: iluminar-links 6s infinite alternate;
+    opacity: 0.8;
+}
+
+
+/* Efecto de iluminación más notorio en los links de la navbar */
+.navbar-nav .nav-link {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--nav-link);
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    animation: iluminar-links 4s infinite alternate;
+    opacity: 1;
+}
+
+@keyframes iluminar-links {
+    0% { text-shadow: 0px 0px 15px lime; }
+    20% { text-shadow: none; }
+    40% { text-shadow: 0px 0px 15px lime; }
+    60% { text-shadow: none; }
+    80% { text-shadow: 0px 0px 15px lime; }
+    100% { text-shadow: none; }
+}
+
+.navbar-nav .nav-link:nth-child(1) { animation-delay: 0s; }
+.navbar-nav .nav-link:nth-child(2) { animation-delay: 0.5s; }
+.navbar-nav .nav-link:nth-child(3) { animation-delay: 1s; }
+.navbar-nav .nav-link:nth-child(4) { animation-delay: 1.5s; }
+.navbar-nav .nav-link:nth-child(5) { animation-delay: 2s; }
+.navbar-nav .nav-link:nth-child(6) { animation-delay: 2.5s; }
+
+
+.titulo .span-saludo {
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+.estilos-nav .navbar-nav .nav-link:hover {
+    color: var(--nav-link-hover);
+    text-shadow: 0px 0px 5px #6de8f8;
+}
+
+.estilos-nav:hover {
+    background: var(--fondo-nav-hover);
+}
+
+.estilos-nav .navbar-toggler {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+}
+
+/* estilos icono menu hamburguesa */
+.estilos-nav .navbar-toggler {
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    margin-left: auto;
+    color: var(--nav-toggler);
+}
+
+.estilos-nav .navbar-toggler-icon {
+    background-image: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.estilos-nav .navbar-toggler-icon::before,
+.estilos-nav .navbar-toggler-icon::after,
+.estilos-nav .navbar-toggler-icon div {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: var(--nav-toggler);
+    transition: all 0.3s ease-in-out;
+}
+
+.estilos-nav .navbar-toggler-icon::before {
+    top: 8px;
+}
+
+.estilos-nav .navbar-toggler-icon::after {
+    bottom: 8px;
+}
+
+.estilos-nav .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+
+
+.estilos-nav .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* fin menu hamburguesa */
+
+/* estilos boton parpadeante */
+
+.btn-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 25px 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--boton-parpadeante);
+    border: 1px solid #6de8f8;
+    text-shadow: 0 0 5px #6de8f8,
+        0 0 10px #6de8f8,
+        0 0 40px #6de8f8,
+        0 0 60px #6de8f8;
+    box-shadow: 0 0 15px #6de8f8;
+    animation: parpadeo 2s linear infinite;
+    transition: .7s ease;
+}
+
+.btn-link:hover {
+    color: var(--boton-parpadeante);
+    border: 1px solid #80d0c7;
+    animation: none;
+}
+
+#lang-toggle {
+    border: 1px solid white;
+    border-radius: 12px;
+    color: #e704fc;
+    transition: 0.5s ease-in-out;
+    padding: 5px;
+}
+#lang-toggle:hover {
+    background-color: #e704fcb9;
+    color: #e7e3e3;
+    transition: 0.5s ease-in-out;
+}
+
+/* keyframe */
+
+@keyframes parpadeo {
+
+    0%,
+    41%,
+    45%,
+    47%,
+    49.5%,
+    100% {
+        opacity: 1;
+    }
+
+    42%,
+    44%,
+    46%,
+    48%,
+    50% {
+        opacity: 0;
+    }
+}
+
+/* fin estilos boton parpadeante */
+
+/* seccion sobre mi  */
+
+.titulo-quien-soy {
+    text-shadow: 0 0 5px #6de8f8,
+    0 0 10px #6de8f8,
+    0 0 40px #6de8f8,
+    0 0 60px #6de8f8;
+}
+
+.cuadros {
+    background-color: #0000007c;
+}
+
+
+
+/* Estilos para el botón descargar cv */
+.boton-animado {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--descargar-cv);
+    background: transparent;
+    border: 2px solid #e704fc;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease-in-out;
+    text-shadow: 0 0 5px #e704fc,
+    0 0 10px #e704fc,
+    0 0 40px #e704fc,
+    0 0 60px #e704fc;
+}
+
+.boton-animado::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background: var(--color-descargar-cv);
+    transform: skewX(-40deg);
+    transition: width 0.5s ease-in-out, transform 1.2s ease-in-out;
+    z-index: -1;
+}
+
+.boton-animado:hover::before {
+    width: 100%;
+    transform: skewX(0deg);
+}
+
+.boton-animado:hover {
+    color: #fff;
+    z-index: 1;
+    /* background: #e704fc; */
+}
+
+.corazon {
+    position: absolute;
+    font-size: 24px;
+    color: #e704fc;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 9999;
+    text-shadow: 0 0 5px #e704fc, 0 0 10px #e704fc, 0 0 40px #e704fc;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+@keyframes volar {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+/* seccion proyectos */
+
+/*proyectos*/
+
+.titulo-habilidades {
+    color: #000000;
+    text-shadow: 0 0 5px #e704fc,
+    0 0 10px #e704fc,
+    0 0 40px #e704fc,
+    0 0 60px #e704fc;
+}
+
+.proyectos-recientes {
+    padding: 40px;
+
+}
+
+.proyectos-recientes img{
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    transition: all 0.2s ease;
+    height: 250px;
+    object-fit: cover;
+}
+
+.proyectos-contenedor{
+    padding-top: 60px;
+    margin-bottom: 40px;
+
+}
+
+.overlay{
+     transition: all 0.2s ease;
+     opacity: 0;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+}
+
+.overlay p {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-shadow: 0 0 5px black,
+    0 0 10px black,
+    0 0 40px black,
+    0 0 60px black;
+}
+
+.proyecto{
+    position: relative;
+}
+
+.proyecto:hover img {
+    opacity: 0.5;
+}
+
+.proyecto:hover .overlay {
+    opacity: 1;
+}
+
+.overlay .iconos-contenedor {
+     display: flex;
+}
+
+.overlay i {
+    color: black;
+    font-size: 60px;
+    margin: 10px;
+    transition: all 0.2s ease-in;
+}
+
+.overlay i:hover {
+    text-shadow: 0 0 5px white,
+    0 0 10px white,
+    0 0 40px white,
+    0 0 60px white;
+    transition: all 0.2s ease-in;
+}
+
+
+/* fin seccion sobre mi */
+
+/* seccion mis certificados */
+/* Estilos para el título con efecto máquina de escribir */
+.typewriter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 80px auto 30px;
+    width: 90%;
+    max-width: 800px;
+    padding: 10px;
+}
+
+.typing h2 {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2.5rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid black;
+    padding-right: 5px;
+    animation: typing 3s steps(20) infinite alternate, blink 0.7s infinite;
+}
+
+.wrap {
+    width: max-content;
+    font-size: 18px;
+    padding: 8px;
+    color: #000000;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 3px #ffffff, 0 0 6px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+}
+
+@keyframes typing {
+    0% { width: 0%; visibility: hidden; }
+    100% { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+    100% { border-color: black; }
+}
+
+/* seccion certificacioens */
+/* galeria de imagenes responsive */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    width: 95%;
+    margin: auto;
+    grid-gap: 10px;
+    padding: 40px 0;
+    overflow: hidden;
+}
+.galeria > a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 6px rgba(178, 28, 248, 0.5);
+}
+
+
+.galeria img {
+    width: 100%;
+    vertical-align: top;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s;
+
+}
+
+/* trasicion de las imagenes */
+
+.galeria a:hover img {
+    filter: blur(2px);
+    transform: rotate(10deg) scale(1.3);
+}
+
+.light-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    transition: transform .3s ease-in-out;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+}
+
+.light-box img { 
+    width: 60vw;
+    max-height: 70vh ;
+}
+
+.light-box:target {
+    transform: scale(1);
+}
+
+.close {
+    display: block;
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    background: #e704fc;
+    color: #000000;
+    text-decoration: none;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.next {
+    display: block;
+    background: #e704fc;
+    color: #000000;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+/* fin seccion certificaciones */
+
+/* seccion habilidades */
+
+/* titulo habilidades*/
+
+
+/* Estilos para el título glitch */
+.contenedor-glitch {
+    background: transparent;
+    min-height: 30vh;
+    display: grid;
+    place-items: center;
+    padding-top: 150px;
+}
+
+.glitch {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    font-size: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+        -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+        0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    animation: glitch 500ms infinite;
+    text-align: center;
+}
+
+.glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.glitch span:first-child {
+    animation: glitch 650ms infinite;
+    z-index: 1;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-0.025em, -0.0125em);
+    opacity: 0.8;
+}
+
+.glitch span:last-child {
+    animation: glitch 375ms infinite;
+    z-index: 1;
+    clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+    transform: translate(0.0125em, 0.025em);
+    opacity: 0.8;
+}
+
+
+
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    14% {
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    15% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    49% {
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    50% {
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75),
+            0 -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+
+    99% {
+        text-shadow: 0.025em 0.05em 0 rgb(255, 0, 0, 0.75),
+            0.05em 0 0 rgb(0, 255, 0, 0.75),
+            0 -0.05em 0 rgb(0, 0, 255, 0.75);
+    }
+
+    100% {
+        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+            -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+    }
+}
+
+
+
+/* fin titulo habilidades */
+
+
+/* Carrusel de habilidades */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    padding: 0 12px;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.habilidades-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.habilidades-rotativas {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #e704fc, 0 0 20px #e704fc;
+    animation: girar-habilidades 6s linear infinite;
+}
+
+@keyframes girar-habilidades {
+    0% { transform: rotate(0deg) translateY(-50px) rotate(0deg); }
+    33% { transform: rotate(120deg) translateY(-50px) rotate(-120deg); }
+    66% { transform: rotate(240deg) translateY(-50px) rotate(-240deg); }
+    100% { transform: rotate(360deg) translateY(-50px) rotate(-360deg); }
+}
+
+.habilidades-rotativas:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.habilidades-rotativas:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.habilidades-rotativas:nth-child(3) {
+    animation-delay: 4s;
+}
+/* fin carrusel de habilidades  */
+/*fin seccion habilidades */
+
+/* seccion proyectos (behance) */
+
+.behance-perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+}
+
+.behance-contenedor {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.192);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    width: 100%;
+}
+
+.behance-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit:fill;
+    margin-right: 20px;
+    border: 3px solid white;
+}
+
+.behance-texto {
+    flex: 1;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.btn-behance {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-behance:hover {
+    background-color: white;
+    border: 1px solid var(--boton-parpadeante);
+    box-shadow: 0 0 5px #6de8f8,
+    0 0 10px #6de8f8,
+    0 0 40px #6de8f8,
+    0 0 60px #6de8f8;
+}
+
+/* fin estilos para la sección de Behance */
+
+
+/* seccion contacto */
+
+/* titulo contacto */
+.contenedor-titulo-contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 50px 10px;
+}
+
+.contenedor-titulo-contacto span {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5rem;
+    animation: glow 2s ease-in-out infinite;
+}
+
+
+.contenedor-titulo-contacto span:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.contenedor-titulo-contacto span:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.contenedor-titulo-contacto span:nth-child(4) {
+    animation-delay: 0.75s;
+}
+
+.contenedor-titulo-contacto span:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.contenedor-titulo-contacto span:nth-child(6) {
+    animation-delay: 1.25s;
+}
+
+.contenedor-titulo-contacto span:nth-child(7) {
+    animation-delay: 1.50s;
+}
+
+.contenedor-titulo-contacto span:nth-child(8) {
+    animation-delay: 1.75s;
+}
+
+.contenedor-titulo-contacto span:nth-child(9) {
+    animation-delay: 2s;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        color: #fff;
+        text-shadow: 0 0 12px lime, 0 0 50px lime, 0 0 100px lime;
+    }
+
+    10%,
+    90% {
+        color: #494848;
+        text-shadow: none;
+    }
+
+}
+/* fin titulo contacto */
+
+/* Estilos para el formulario de contacto */
+.formulario-contacto {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.formulario-contacto label {
+    font-size: 1.2rem;
+    color: white;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+}
+
+.formulario-contacto input::placeholder,
+.formulario-contacto textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.formulario-contacto button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    /* background: lime; */
+    background-color: rgba(0, 255, 0, 0.418);
+    border-style: none;
+    color: white;
+    text-shadow: 0 0 5px lime,
+    0 0 10px lime,
+    0 0 40px lime,
+    0 0 60px lime;
+    font-size: 1.2rem;
+    /* border: none; */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px lime;
+}
+
+.formulario-contacto button:hover {
+    background: lime;
+    color: rgb(45, 95, 40);
+    box-shadow: 0 0 10px lime;
+}
+
+
+/* footer */
+footer {
+    min-height: 350px;
+    
+}
+
+.footer-logo {
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+    border-radius: 50%;
+}
+
+.footer-texto {
+    font-size: 1.5rem;
+    padding: 20px;
+    margin-bottom: 30px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.iconos-redes-sociales a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales i {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in;
+}
+
+.iconos-redes-sociales a:hover {
+    background-color: white;
+    border: 2px solid var(--boton-parpadeante);
+    box-shadow: 0 0 5px #6de8f8,
+    0 0 10px #6de8f8,
+    0 0 40px #6de8f8,
+    0 0 60px #6de8f8;
+}
+
+.iconos-redes-sociales a:hover i {
+    color: black;
+
+}
+
+.derechos-de-autor {
+    font-size: 15px;
+    color: var(--derechos-autor);
+    padding: 20px;
+}
+
+
+
+
+/* media querys */
+
+
+@media screen and (max-width: 768px) {
+    .estilos-nav {
+        width: 100%;
+    }
+    .estilos-nav .navbar-nav {
+        text-align: center;
+        flex-direction: column;
+    }
+    .estilos-nav .navbar-nav .nav-link {
+        padding: 10px 0;
+    }
+
+    /* mi nombre */
+    .mi-nombre { font-size: 3rem; }
+
+    /* titulo proyectos */
+    .glitch {
+        font-size: 3rem;
+    }
+
+    /* titulo contacto */
+    .contenedor-titulo-contacto span {
+        font-size: 3rem;
+}
+}
+
+/* media de maquina de escribir */
+
+@media screen and (max-width: 600px) {
+
+    /* medias de maquina de escribir */
+    .typing h2 {
+        font-size: 2rem;
+    }
+    .typewriter-container {
+        margin-top: 40px;
+    }
+    .wrap {
+        font-size: 14px;
+        padding: 6px;
+    }
+    /*fin medias de maquina de escribir */
+
+    /* formulario */
+    .formulario-contacto {
+        width: 95%;
+        padding: 15px;
+    }
+
+    /* seccion behance */
+
+    .behance-contenedor {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .behance-foto {
+        margin: 0 0 15px 0; /* Elimina el margen derecho y agrega espacio abajo */
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    
+        /* titulo mi nombre */
+        .mi-nombre { font-size: 2.5rem; }
+
+        .contenedor-titulo-contacto span {
+            font-size: 2rem;
+        }
+
+        
+    .formulario-contacto {
+        background-color: #00000083;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+
+        /*medias de maquina de escribir */
+        .typing h2 {
+            font-size: 1.5rem;
+        }
+        .typewriter-container {
+            margin-top: 30px;
+        }
+        .wrap {
+            font-size: 12px;
+            padding: 5px;
+        }
+        /*fin media de maquina de escribir */
+    
+        /* galeria de certififcados */
+        .galeria {
+            grid-template-columns: repeat(auto-fit, minmax(200px), 1fr);
+        }
+    
+        .close {
+            top: 20px;
+            right: 20px;
+        }
+
+        /* titulo proyectos */
+
+        .glitch {
+            font-size: 2rem;
+        }
+
+        /* titulo contacto */
+        .contenedor-titulo-contacto span {
+            font-size: 2rem;
+        }
+}
+
+
+@media screen and (max-width: 390px) {
+    .barra-navegacion a {
+        font-size: 12px;
+    }
+    .contenido-descripcion .titulo span:last-child {
+        font-size: 30px;
+    }
+    .descripcion p {
+        font-size: 14px;
+    }
+    .glitch {
+        font-size: 2.5rem;
+    }
+    .contenedor-titulo-contacto span {
+        font-size: 2rem;
+    }
+    .subir {
+        font-size: 13px;
+    }
+
+    /* titulo contacto */
+    
+    .contenedor-titulo-contacto span {
+        font-size: 1.5rem;
+
+    }
+
+}

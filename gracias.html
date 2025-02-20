@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu mensaje!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&display=swap');
+        body {
+            background-image: linear-gradient(135deg, #111d559d 0%, #220e359c 100%),url(img/fondo-9.png);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-family: "Montserrat";
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.747);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+        color: #dddddd;
+        }
+        p {
+            color: #dddddd;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background: #28a746a9;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ffffff,
+            0 0 10px #ffffff,
+            0 0 40px #ffffff,
+            0 0 60px #ffffff;
+            border:1px solid #ffffff;
+            transition: 1s;
+        }
+        .btn:hover {
+            background: rgba(2, 87, 2, 0.89);
+            box-shadow: 0 0 5px #000000,
+            0 0 10px #000000,
+            0 0 40px #000000,
+            0 0 60px #000000;
+            transition: 1s;
+            border:1px solid #ffffff;
+            text-shadow: 0 0 5px #6de8f8,
+        0 0 10px #6de8f8,
+        0 0 40px #6de8f8,
+        0 0 60px #6de8f8;
+        }
+
+        #particles-js {
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: -1;
+    }
+    </style>
+</head>
+<div id="particles-js"></div> <!-- ID Particles.js-->
+<body>
+    <div class="container">
+        <h1>¡Gracias por tu mensaje!</h1>
+        <p>En breve recibirás una respuesta</p>
+        <a href="index.html" class="btn">Volver al inicio</a>
+    </div>
+
+    <!-- script de particulas -->
+     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script-particulas.js"></script>
+</body>
+</html>
