@@ -76,6 +76,7 @@ body {
     background-image: var(--body-img);
     color: var(--texto);
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 /* estilos de la barra de scroll */
@@ -140,7 +141,7 @@ body::-webkit-scrollbar-thumb {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     box-shadow: 0px 3px 5px #000000;
-    width: 100vw;
+    /* width: 100vw; */
 }
 
 
